@@ -1,0 +1,336 @@
+html{
+    --marime-font:16px;
+    font-size:var(--marime-font);
+    transition: font-size 0.3s ease;
+    --padding-val:20px;
+}
+
+header{
+    background-color: var(--culoare-contur);
+    color: #ffff;
+    padding: var(--padding-val);
+    border-bottom: 2px solid var(--culoare-titlu); 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2); 
+    border-radius: 0 0 10px 10px; 
+    h1{
+        color:#C0DB7F;
+    }
+}
+
+body{
+    --culoare-fundal:#C0DB7F;
+    --culoare-contur:#557226;
+    --culoare-text: #273635;
+    --culoare-titlu: #384d3e;
+    --culoare-special: #4e5650;
+    --margine-pagina:120px;
+    background-color: var(--culoare-fundal);
+    font-size: 1rem;
+    font-family: "Noto Sans", sans-serif;
+}
+
+p{
+    color:var(--culoare-text)
+}
+
+h1{
+    color:var(--culoare-titlu);
+    font-size:2rem;
+}
+
+h2{
+    color:var(--culoare-titlu);
+    font-size:1.6rem;
+}
+
+h3{
+    color:var(--culoare-titlu);
+    font-size:1.3rem;
+}
+
+b{
+    color:var(--culoare-special);
+}
+
+a{
+    color:var(--culoare-special);
+}
+
+main{
+    margin-left: var(--margine-pagina);
+    margin-right: var(--margine-pagina);
+}
+
+#grid-pagina{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: grid;
+    gap: 10px;
+    /* Grid pe 4 coloane */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "z-welcome z-welcome z-welcome z-welcome"
+                        "z-welcome z-welcome z-welcome z-welcome"
+                         "promo orar orar anunturi"
+                         "retete retete retete retete"
+                         "retete retete retete retete"
+                         "produse produse samerg index-intrebari";}
+
+    #produse img, #produse figure img {
+    max-width: 100%;    
+    min-width: 50px; 
+    height: auto;      
+    display: block;    
+}
+
+.container-iframe{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    width: 100%;       
+    max-width: 600px;  
+    padding-bottom:10px;
+    height: auto;
+}
+
+.noto-rashi-hebrew-font {
+  font-family: "Noto Rashi Hebrew", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.noto-sans-font1 {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.icon-animat {
+      color: var(--culoare-titlu);
+      font-size: 2rem;
+    }
+
+
+
+.taburi-iframe {
+     display: flex;
+     flex-direction:row; /*sau column sau reverse row sau bla bla*/
+     align-items: stretch;
+     /*height: 100%;*/
+     justify-content: center;
+     /*border: 1px solid var(--culoare-contur);*/
+     border-bottom: none;
+    }
+
+.taburi-iframe > a{
+    display: inline-block;
+    padding: var(--padding-val);
+    background-color: var(--culoare-fundal);
+    border: 1px solid var(--culoare-contur);
+    color:black;
+    text-decoration: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0 2px 5px var(--culoare-contur);
+    margin-right: 10px;
+    transition: all 1s linear;
+}
+
+.taburi-iframe > a:hover{
+    background-color: var(--culoare-contur);
+    color: white;
+}
+
+#tab-orar{
+    border-collapse:collapse; /*nu e spatiu intre celule*/
+    width: 100%;
+}
+
+#tab-orar caption {
+    caption-side: bottom;       
+    font-style: italic;         
+    font-weight: bold;          
+    padding-top: 10px;          
+    color: var(--culoare-titlu); 
+}
+
+#tab-orar thead th {
+    border-width: 3px; 
+    
+}
+
+#tab-orar th, #tab-orar td {
+    border: 1px solid var(--culoare-contur); 
+    padding: 10px;
+    text-align: center;
+    transition: all 0.75s ease; 
+}
+
+#tab-orar tbody tr:nth-child(odd) {
+    box-shadow: 0 2px 5px var(--culoare-titlu);  
+    color: var(--culoare-contur);
+    background-color: transparent;
+}
+
+#tab-orar tbody tr:nth-child(even) {
+    box-shadow: 0 2px 5px var(--culoare-contur);
+    background-color: transparent; 
+    color:var(--culoare-titlu);
+}
+
+#tab-orar tbody tr:hover {
+    background-color: var(--culoare-special); 
+    color:#ffffff;
+}
+
+#tab-orar tbody tr:hover td {
+    font-size: 120%; 
+}
+
+.scroll-container {
+    overflow-x: auto; 
+}
+
+@media screen and (max-width:1200px) {
+
+    html{
+        font-size:15px;
+    }
+    body{
+        --margine-pagina:80px;
+    }
+    main{
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+    #grid-pagina{
+    display: grid;
+    transition: none;
+    animation: none;
+    gap: 7px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "z-welcome z-welcome"
+                         "promo promo"
+                         "anunturi anunturi"
+                         "produse orar "
+                         "produse orar "
+                         "produse orar "
+                         "index-intrebari pdf"
+                         "index-intrebari pdf"
+                         "retete retete";
+} 
+#grid-pagina img, #grid-pagina video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+#tab-orar {
+        min-width: 600px; 
+    }
+}
+
+@media screen and (max-width:700px) {
+
+    html{
+        font-size:14px;
+    }
+    body{
+        --margine-pagina:50px;
+    }
+    main{
+        margin-left: 0.1rem;
+        margin-right: 0.1rem;
+    }
+    #grid-pagina{
+        gap: 5px;
+    display: block;
+    transition: none;
+    animation: none;
+} 
+#grid-pagina img, #grid-pagina video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+#tab-orar {
+        min-width: 500px; 
+    }
+}
+
+#grid-pagina>*{
+    border: 1px solid var(--culoare-contur);
+    box-shadow: 0px 2px 2px var(--culoare-contur);
+    padding: var(--padding-val);
+} 
+
+#welcome{
+    grid-area: z-welcome;
+}
+#promo{
+    grid-area: promo;
+}
+#anunturi{
+    grid-area: anunturi;
+}
+#orar{
+    grid-area: orar;
+}
+#produse{
+    grid-area: produse;
+}
+#index-intrebari{
+    grid-area: index-intrebari;
+}
+#retete{
+    grid-area: retete;
+}
+#pdf{
+    grid-area: samerg;
+}
+
+footer{
+    background-color: var(--culoare-contur); 
+    color: #ffffff;
+    padding: 20px;
+    border-bottom: 2px solid var(--culoare-titlu); 
+    box-shadow: 0 -4px 6px rgba(0,0,0,0.2); 
+    border-radius: 10px 10px 10px 10px; 
+    h1,a{
+        color:#C0DB7F;
+    }
+}
+
+#link-top {
+  position: fixed;
+  bottom: 0.3em;
+  opacity: 0.5;
+  left: 0.3em;
+  width: 3rem;
+  box-sizing: border-box;
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  border: 5px solid grey;
+  border-top-color: red;
+  border-radius: 50%;
+  background: rgb(220, 220, 220);
+}
+
+#link-top:hover {
+  opacity: 1;
+}
+
+#triunghi {
+  height: 0px;
+  width: 0;
+  display: inline-block;
+  border-bottom: 1.5rem solid grey;
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+
+  vertical-align: top;
+  transform: translateY(30%);
+}

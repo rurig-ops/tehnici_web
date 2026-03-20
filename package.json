@@ -1,11 +1,12 @@
 {
   "name": "beciulbunicii",
   "version": "1.0.0",
-  "description": "magazin muraturi",
+  "description": "magazin online de muraturi",
   "keywords": [
     "beciul bunicii",
+    "muraturi",
     "muraturi asortate",
-    "muraturi"
+    "borcan de muraturi"
   ],
   "homepage": "https://github.com/rurig-ops/tehnici_web#readme",
   "bugs": {
@@ -21,5 +22,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1"
   }
 }

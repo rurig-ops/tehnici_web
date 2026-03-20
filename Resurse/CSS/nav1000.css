@@ -1,3 +1,15 @@
-.text-icon{
-    display:none;
+ul.meniu {
+    font-size: 0.85rem; 
+}
+
+ul.meniu li a .text-icon {
+    display: none;
+}
+
+ul.meniu li a .imag-icon {
+    display: inline-block;
+}
+
+#acasa-mediu {
+    display: inline-block;
 }

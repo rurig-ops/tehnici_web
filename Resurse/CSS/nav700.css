@@ -9,14 +9,25 @@
 
 ul.meniu{
     display: none;
+    position: absolute;
+    left: 30px;
+    width: 100%;
+    z-index: 10;
+    background-color: var(--culoare-fundal);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 50%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 50%);
+    -webkit-mask-size: 100% 200%; 
+    mask-size: 100% 200%;
+    -webkit-mask-position: 0 100%; 
+    mask-position: 0 100%;
+    
+    transition: mask-position 0.7s ease-out, -webkit-mask-position 0.7s ease-out;
 }
 
 #ch-menu:checked+ ul.meniu{
     display: block;
-    position: absolute;
-    left:30px;
-    width: 100%;
-    z-index: 10;
+    -webkit-mask-position: 0 0; 
+    mask-position: 0 0;
 }
 
 ul.meniu li{

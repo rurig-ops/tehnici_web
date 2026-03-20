@@ -1,0 +1,25 @@
+{
+  "name": "beciulbunicii",
+  "version": "1.0.0",
+  "description": "magazin muraturi",
+  "keywords": [
+    "beciul bunicii",
+    "muraturi asortate",
+    "muraturi"
+  ],
+  "homepage": "https://github.com/rurig-ops/tehnici_web#readme",
+  "bugs": {
+    "url": "https://github.com/rurig-ops/tehnici_web/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rurig-ops/tehnici_web.git"
+  },
+  "license": "ISC",
+  "author": "Cojocaru Ruxandra Maria",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

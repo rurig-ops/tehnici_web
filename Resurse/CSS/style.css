@@ -1,5 +1,6 @@
 	#watermark,
-	#absolut {
+	#absolut,
+	#banner {
 		display: none;
 	}
 
@@ -21,6 +22,35 @@
 
 
 	@media print {
+
+		img,
+		video,
+		iframe,
+		figure,
+		figcaption,
+		object,
+		.taburi-iframe {
+			display: none;
+		}
+
+		a[href="#top"] {
+			display: none;
+		}
+
+		a {
+			color: var(--culoare-text);
+			text-decoration: none;
+		}
+
+		#banner {
+			display: block;
+			width: 70%;
+			margin: 0 auto;
+			border: 4px inset black;
+			text-align: center;
+			bottom: 0;
+			left: 15%;
+		}
 
 		#absolut {
 			position: absolute;
@@ -44,10 +74,26 @@
 		}
 
 		h1 {
-			page-break-after: always;
 			margin-top: 50%;
 			text-align: center;
-			margin-left: 1cm;
+			margin-left: 0;
+		}
+
+		nav ul {
+			display: block;
+		}
+
+		nav ul li {
+			display: block;
+			margin-right: 10px;
+		}
+
+		nav ul ul {
+			display: none;
+		}
+
+		nav {
+			page-break-after: always;
 		}
 
 		#grid-pag {
@@ -78,27 +124,35 @@
 			page-break-before: always;
 		}
 
+		footer {
+			page-break-before: always;
+		}
 
 		#watermark {
 			display: block;
 			position: fixed;
-			/*apare pe toate paginile*/
-			bottom: 0;
-			color: rgba(0, 0, 0, 0.4);
-			right: 0;
+			bottom: 1cm;
+			right: 1cm;
+
+			width: 4cm;
+			height: 1cm;
+
+			border: 3px solid black;
+			border-radius: 10px;
+
+			text-align: center;
+			font-weight: bold;
+
+			opacity: 0.4;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 
 		#watermark::after {
-
-			opacity: 0.4;
-			padding: 5px;
-			display: block;
-			background: white;
-			border: 2px solid black;
-			border-top-left-radius: 10px;
-			border-bottom-left-radius: 10px;
-			border-right: none;
-			content: "Copyright Irina Ciocan";
+			content: "Cojocaru\nRuxandra Maria";
+			white-space: pre;
 		}
 
 		#end {
@@ -116,13 +170,13 @@
 
 	@page: left {
 
-		margin-left: 2cm;
+		margin-left: 3cm;
 		margin-right: 1cm;
 		border-radius: 20cm;
 	}
 
 	@page: right {
 
-		margin-right: 2cm;
+		margin-right: 3cm;
 		margin-left: 1cm;
 	}

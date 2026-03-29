@@ -1,0 +1,90 @@
+$culoare-nav: var(--culoare-contur);
+
+%mask-base {
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: top;
+  mask-repeat: no-repeat;
+  mask-position: top;
+}
+
+nav {
+  --latime-buton: 100%;
+}
+
+#hamburger {
+  display: block;
+
+  img {
+    height: 2rem;
+  }
+}
+
+ul.meniu {
+  @extend %mask-base;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  background-color: $culoare-nav;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  -webkit-mask-size: 100% 0%;
+  mask-size: 100% 0%;
+  transition: opacity 0.1s;
+
+  li {
+    width: 100%;
+    text-align: center;
+    padding: 1.2rem 0;
+  }
+
+  ul {
+    width: 100%;
+  }
+}
+
+#ch-menu:checked + ul.meniu {
+  opacity: 1;
+  visibility: visible;
+  animation: deschide-meniu 1s forwards ease-out;
+}
+
+@keyframes deschide-meniu {
+  0% {
+    -webkit-mask-size: 100% 0%;
+    mask-size: 100% 0%;
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  }
+  10% {
+    -webkit-mask-size: 100% 10%;
+    mask-size: 100% 10%;
+    -webkit-mask-image: linear-gradient(to bottom, black 10%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 10%, transparent 100%);
+  }
+  50% {
+    -webkit-mask-size: 100% 50%;
+    mask-size: 100% 50%;
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+  90% {
+    -webkit-mask-size: 100% 90%;
+    mask-size: 100% 90%;
+    -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  }
+  100% {
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-image: linear-gradient(to bottom, black 100%, black 100%);
+    mask-image: linear-gradient(to bottom, black 100%, black 100%);
+  }
+}

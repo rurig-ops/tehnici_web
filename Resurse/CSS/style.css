@@ -1,182 +1,162 @@
-	#watermark,
-	#absolut,
-	#banner {
-		display: none;
+@media print {
+
+	iframe,
+	nav ul ul,
+	.cerc-rotativ,
+	figure,
+	figcaption,
+	#link-top,
+	.taburi-iframe,
+	#sageata,
+	#absolut {
+		display: none !important;
 	}
 
-	#grid-pag {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		row-gap: 15px;
-		column-gap: 5px;
-		padding: 10px;
+	html,
+	body {
+		width: 210mm;
+		overflow: visible !important;
+		background: none !important;
+		margin: 0;
+		padding: 0;
 	}
 
-	.celula {
-		background-color: lightblue;
-		border: 1px solid rgba(0, 0, 0, 0.8);
-		padding: 20px;
-		font-size: 16px;
+	header,
+	nav {
+		background: none !important;
+		border: none !important;
+		box-shadow: none !important;
+		display: block !important;
+		width: 100% !important;
+	}
+
+	h1 {
+		margin-top: 40%;
+		text-align: center;
+		page-break-after: avoid;
+	}
+
+	nav {
+		display: block;
+		height: 20cm;
+		position: relative;
+	}
+
+	header {
+		page-break-after: always;
+	}
+
+	nav ul {
+		display: block !important;
+		list-style-type: disc !important;
+		padding-left: 40px;
+		margin: 50px auto;
+		width: fit-content;
+	}
+
+	nav ul li {
+		display: list-item !important;
+		margin-bottom: 10px;
+	}
+
+	nav ul li a {
+		text-decoration: none;
+		color: black;
+		border: none !important;
+		box-shadow: none !important;
+		background: none !important;
+		padding: 0;
+		font-size: 14pt;
+	}
+
+	#grid-pagina {
+		display: block !important;
+		width: 100%;
+		margin: 0 !important;
+		padding: 0 !important;
+		border: none !important;
+		box-shadow: none !important;
+		border:none;
+	}
+
+	#grid-pagina div {
+		position: static !important;
+		margin-bottom: 20px;
+		page-break-inside: avoid;
+	}
+
+	table {
+		width: 100% !important;
+		border-collapse: collapse;
+	}
+
+	footer {
+		page-break-before: always;
+		display: block !important;
+		position: relative;
+		border: none !important;
+		box-shadow: none !important;
+	}
+
+	#watermark {
+		display: flex !important;
+		align-items: center;
+		justify-content: center;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		width: 4cm;
+		height: 1cm;
+		border: 3px solid black;
+		border-radius: 10px;
+		opacity: 0.4;
+		background: white;
+		box-sizing: border-box;
 		text-align: center;
 	}
 
-
-	@media print {
-
-		img,
-		video,
-		iframe,
-		figure,
-		figcaption,
-		object,
-		.taburi-iframe {
-			display: none;
-		}
-
-		a[href="#top"] {
-			display: none;
-		}
-
-		a {
-			color: var(--culoare-text);
-			text-decoration: none;
-		}
-
-		#banner {
-			display: block;
-			width: 70%;
-			margin: 0 auto;
-			border: 4px inset black;
-			text-align: center;
-			bottom: 0;
-			left: 15%;
-		}
-
-		#absolut {
-			position: absolute;
-			display: inline-block;
-			bottom: 0%;
-			width: 20px;
-			height: 20px;
-			right: 0;
-			overflow: visible;
-		}
-
-		#absolut::after {
-			content: "Element poziționat absolut pe a doua pagină.Pentru a vedea stilul de printare apăsați Ctrl+P.";
-			position: absolute;
-			font-size: 10px;
-			right: 0;
-			border: 5px double black;
-			width: 200px;
-			height: 35px;
-			display: inline-block;
-		}
-
-		h1 {
-			margin-top: 50%;
-			text-align: center;
-			margin-left: 0;
-		}
-
-		nav ul {
-			display: block;
-		}
-
-		nav ul li {
-			display: block;
-			margin-right: 10px;
-		}
-
-		nav ul ul {
-			display: none;
-		}
-
-		nav {
-			page-break-after: always;
-		}
-
-		#grid-pag {
-			font-size: 10px;
-			box-sizing: border-box;
-			page-break-before: always;
-			background-color: white;
-			/*
-			grid-template-rows: calc(100vh - 10px) 100vh 100vh 100vh;*/
-
-			display: block;
-		}
-
-		html,
-		body {
-			width: 210mm;
-			/* height: 297mm; */
-			/*height: 282mm;*/
-			overflow: visible !important;
-		}
-
-		/*#lst li{
-		page-break-before: always;
-	}*/
-
-		#grid-pag div:nth-child(5) {
-
-			page-break-before: always;
-		}
-
-		footer {
-			page-break-before: always;
-		}
-
-		#watermark {
-			display: block;
-			position: fixed;
-			bottom: 1cm;
-			right: 1cm;
-
-			width: 4cm;
-			height: 1cm;
-
-			border: 3px solid black;
-			border-radius: 10px;
-
-			text-align: center;
-			font-weight: bold;
-
-			opacity: 0.4;
-
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-
-		#watermark::after {
-			content: "Cojocaru\nRuxandra Maria";
-			white-space: pre;
-		}
-
-		#end {
-			page-break-before: always;
-		}
+	#watermark p {
+		display: none !important;
 	}
 
-	@page {
-		size: A4 portrait;
-		margin-bottom: 2cm;
-		margin-top: 2cm;
-		counter-increment: page;
-
+	#watermark::after {
+		content: "Cojocaru" "\00000a" "Ruxandra";
+		white-space: pre;
+		display: block;
+		font-weight: bold;
+		font-size: 10pt;
+		line-height: 1.1;
 	}
 
-	@page: left {
 
-		margin-left: 3cm;
-		margin-right: 1cm;
-		border-radius: 20cm;
+	#banner-pls {
+		display: block !important;
+		position: absolute;
+		bottom: 1cm;
+		width: 70%;
+		text-align: center;
+		font-weight: bold;
+		font-size: 14pt;
 	}
 
-	@page: right {
-
-		margin-right: 3cm;
-		margin-left: 1cm;
+	#banner-pls::after {
+		content: "Acesta este un proiect școlar!";
 	}
+}
+
+
+@page :left {
+	margin-left: 3cm;
+	margin-right: 1cm;
+}
+
+@page :right {
+	margin-left: 1cm;
+	margin-right: 3cm;
+}
+
+@page {
+	size: A4 portrait;
+	margin-top: 2cm;
+	margin-bottom: 2cm;
+}

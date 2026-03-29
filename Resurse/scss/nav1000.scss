@@ -1,0 +1,25 @@
+$font-meniu-mediu: 0.85rem;
+
+%afisare-iconita {
+    display: inline-block;
+}
+
+ul.meniu {
+    font-size: $font-meniu-mediu;
+
+    li {
+        a {
+            .text-icon {
+                display: none;
+            }
+
+            .imag-icon {
+                @extend %afisare-iconita;
+            }
+        }
+    }
+}
+
+#acasa-mediu {
+    @extend %afisare-iconita;
+}

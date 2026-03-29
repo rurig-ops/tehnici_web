@@ -1,0 +1,143 @@
+$nul: 0;
+
+%flex-centrat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+%reset-lista {
+    list-style-type: none;
+    padding: $nul;
+    margin: $nul;
+}
+
+nav {
+    --latime-buton: 150px;
+    --inaltime-buton: 35px;
+    background-color: var(--culoare-contur);
+}
+
+ul.meniu {
+    @extend %reset-lista;
+    display: flex;
+    position: relative;
+
+    ul {
+        @extend %reset-lista;
+        display: none;
+        z-index: 10;
+        transition: all 1s linear;
+        top: 100%;
+        left: 0;
+    }
+
+    li {
+        font-weight: bold;
+        width: var(--latime-buton);
+        height: var(--inaltime-buton);
+        background-color: var(--culoare-fundal);
+        border: 1px solid var(--culoare-contur);
+        text-align: center;
+        line-height: normal;
+        display: flex;
+        padding: 0;
+        color: black;
+        transition: all 1s linear;
+        position: relative;
+
+        a {
+            @extend %flex-centrat;
+            color: black;
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        &:hover {
+            background-color: var(--culoare-contur);
+            color: white;
+            cursor: pointer;
+
+            & > a {
+                color: white;
+                transition: all 1s linear;
+            }
+
+            & > ul {
+                display: block;
+                position: absolute;
+                animation: animatie_submeniu 0.5s linear;
+                transform-origin: center top;
+
+                @media screen and (max-width: 1200px) {
+                    transition: none;
+                    animation: none;
+                }
+
+                @media screen and (max-width: 700px) {
+                    transition: none;
+                    animation: none;
+                }
+            }
+        }
+
+        &:first-child:hover #acasa {
+            opacity: 1;
+            width: auto;
+            margin-left: 5px;
+        }
+    }
+
+    ul li:hover {
+        background-color: var(--culoare-titlu);
+        
+        & > a {
+            color: var(--culoare-fundal);
+        }
+    }
+}
+
+#acasa {
+    display: inline-block;
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    white-space: nowrap;
+}
+
+#hamburger,
+#ch-menu {
+    display: none;
+}
+
+.text-icon,
+.imag-icon {
+    @extend %flex-centrat;
+    display: inline-flex;
+    width: auto;
+}
+
+.container-meniu-box {
+    @extend %flex-centrat;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+@keyframes animatie_submeniu {
+    0% {
+        opacity: 0;
+        transform: scale(0, 0);
+    }
+    50% {
+        transform: scale(0.5, 1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}

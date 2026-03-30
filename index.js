@@ -22,8 +22,11 @@ console.log("Cale fisier", __filename);
 
 app.use(express.static(path.join(__dirname, "Resurse")));
 
-app.get("/", function(req, res){
-    res.render("pagini/index");
+app.get(["/", "/index", "/home"], function(req, res){
+    res.render("pagini/index",{
+        ip: req.ip
+    });
+
 });
 
 app.get("/despre", function(req, res){
@@ -31,7 +34,26 @@ app.get("/despre", function(req, res){
 });
 
 
-
+function afisareEroare(res, identificator, titlu, text, imagine){
+    //TO DO cautam eroarea dupa identificator
+    let eroare=obGlobal.obErori.info_erori.find((elem)=>
+        elem.identificator==identificator
+    
+    )
+    //daca sunt setate titlu, text, imagine, le folosim, 
+    //altfel folosim cele din fisierul json pentru eroarea gasita
+    //daca nu o gasim, afisam eroarea default
+    
+    if(eroare?.status){
+        res.status(eroare.identificator);
+    }
+    let errDefault=obGlobal.obErori.eroare_default;
+    res.render("pagini/eroare",{
+        imagine: imagine||eroare?.imagine||errDefault.imagine,
+        titlu: titlu||eroare?.titlu||errDefault.titlu,
+        text: text||eroare?.text||errDefault.text
+    });
+}
 
 function initErori(){
     let continut = fs.readFileSync(path.join(__dirname,"Resurse/json/erori.json")).toString("utf-8");
@@ -45,7 +67,9 @@ function initErori(){
 }
 initErori()
 
-
+app.get("/eroare", function(req, res){
+    afisareEroare(res,404,"Titlu!")
+});
 
 function compileazaScss(caleScss, caleCss){
     if(!caleCss){
@@ -95,13 +119,7 @@ fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
     }
 })
 
-function afisareEroare(res, identificator, titlu, text, imagine){
-    //TO DO cautam eroarea dupa identificator
-    //daca sunt setate titlu, text, imagine, le folosim, 
-    //altfel folosim cele din fisierul json pentru eroarea gasita
-    //daca nu o gasim, afisam eroarea default
 
-}
 
 
 app.listen(8080);

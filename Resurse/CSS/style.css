@@ -105,10 +105,6 @@
 		position: fixed;
 		bottom: 0;
 		right: 0;
-		width: 4cm;
-		height: 1cm;
-		border: 3px solid black;
-		border-radius: 10px;
 		opacity: 0.4;
 		background: white;
 		box-sizing: border-box;
@@ -132,6 +128,10 @@
 	#banner-pls {
 		display: block !important;
 		position: absolute;
+		width: 4cm;
+		height: 1cm;
+		border: 3px solid black;
+		border-radius: 10px;
 		bottom: 1cm;
 		width: 70%;
 		text-align: center;

@@ -12,7 +12,7 @@ obGlobal={
     obErori:null,
     obImagini:null,
     folderScss: path.join(__dirname,"Resurse/scss"),
-    folderCss: path.join(__dirname,"Resurse/css"),
+    folderCss: path.join(__dirname,"Resurse/CSS"),
     folderBackup: path.join(__dirname,"backup"),
 }
 
@@ -33,28 +33,6 @@ app.get("/despre", function(req, res){
     res.render("pagini/despre");
 });
 
-
-function afisareEroare(res, identificator, titlu, text, imagine){
-    //TO DO cautam eroarea dupa identificator
-    let eroare=obGlobal.obErori.info_erori.find((elem)=>
-        elem.identificator==identificator
-    
-    )
-    //daca sunt setate titlu, text, imagine, le folosim, 
-    //altfel folosim cele din fisierul json pentru eroarea gasita
-    //daca nu o gasim, afisam eroarea default
-    
-    if(eroare?.status){
-        res.status(eroare.identificator);
-    }
-    let errDefault=obGlobal.obErori.eroare_default;
-    res.render("pagini/eroare",{
-        imagine: imagine||eroare?.imagine||errDefault.imagine,
-        titlu: titlu||eroare?.titlu||errDefault.titlu,
-        text: text||eroare?.text||errDefault.text
-    });
-}
-
 function initErori(){
     let continut = fs.readFileSync(path.join(__dirname,"Resurse/json/erori.json")).toString("utf-8");
     let erori=obGlobal.obErori=JSON.parse(continut)
@@ -67,9 +45,27 @@ function initErori(){
 }
 initErori()
 
-app.get("/eroare", function(req, res){
-    afisareEroare(res,404,"Titlu!")
-});
+function afisareEroare(res, identificator, titlu, text, imagine){
+    //TO DO cautam eroarea dupa identificator
+    let eroare=obGlobal.obErori.info_erori.find((elem)=>
+        elem.identificator==identificator
+    
+    )
+    //daca sunt setate titlu, text, imagine, le folosim, 
+    //altfel folosim cele din fisierul json pentru eroarea gasita
+    //daca nu o gasim, afisam eroarea default
+     let errDefault=obGlobal.obErori.eroare_default;
+    if(eroare?.status){
+        res.status(eroare.identificator);
+    }
+    res.render("pagini/eroare",{
+        imagine: imagine||eroare?.imagine||errDefault.imagine,
+        titlu: titlu||eroare?.titlu||errDefault.titlu,
+        text: text||eroare?.text||errDefault.text
+    });
+}
+
+
 
 function compileazaScss(caleScss, caleCss){
     if(!caleCss){
@@ -84,7 +80,7 @@ function compileazaScss(caleScss, caleCss){
     if (!path.isAbsolute(caleCss))
         caleCss=path.join(obGlobal.folderCss,caleCss )
     
-    let caleBackup=path.join(obGlobal.folderBackup, "Resurse/css");
+    let caleBackup=path.join(obGlobal.folderBackup, "Resurse/CSS");
     if (!fs.existsSync(caleBackup)) {
         fs.mkdirSync(caleBackup,{recursive:true})
     }
@@ -93,7 +89,7 @@ function compileazaScss(caleScss, caleCss){
 
     let numeFisCss=path.basename(caleCss);
     if (fs.existsSync(caleCss)){
-        fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "Resurse/css",numeFisCss ))// +(new Date()).getTime()
+        fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "Resurse/CSS",numeFisCss ))// +(new Date()).getTime()
     }
     rez=sass.compile(caleScss, {"sourceMap":true});
     fs.writeFileSync(caleCss,rez.css)
@@ -119,7 +115,41 @@ fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
     }
 })
 
-
+app.get("/*pagina", function(req, res){
+    console.log("Cale pagina", req.url);
+    if (req.url.startsWith("/Resurse") && path.extname(req.url)==""){
+        afisareEroare(res,403);
+        return;
+    }
+    if (path.extname(req.url)==".ejs"){
+        afisareEroare(res,400);
+        return;
+    }
+    try{
+        res.render("pagini"+req.url, function(err, rezRandare){
+            if (err){
+                if (err.message.includes("Failed to lookup view")){
+                    afisareEroare(res,404)
+                }
+                else{
+                    afisareEroare(res);
+                }
+            }
+            else{
+                res.send(rezRandare);
+                console.log("Rezultat randare", rezRandare);
+            }
+        });
+    }
+    catch(err){
+        if (err.message.includes("Cannot find module")){
+            afisareEroare(res,404)
+        }
+        else{
+            afisareEroare(res);
+        }
+    }
+});
 
 
 app.listen(8080);

@@ -20,17 +20,25 @@ console.log("Folder index.js", __dirname);
 console.log("Folder curent (de lucru)", process.cwd());
 console.log("Cale fisier", __filename);
 
+let vect_foldere=[ "temp", "logs", "backup", "fisiere_uploadate" ]
+for (let folder of vect_foldere){
+    let caleFolder=path.join(__dirname, folder);
+    if (!fs.existsSync(caleFolder)) {
+        fs.mkdirSync(path.join(caleFolder), {recursive:true});   
+    }
+}
+
 app.use(express.static(path.join(__dirname, "Resurse")));
+
+app.get("/favicon.ico", function(req, res){
+    res.sendFile(path.join(__dirname,"Resurse/Imagini/ico/favicon.ico"))
+});
 
 app.get(["/", "/index", "/home"], function(req, res){
     res.render("pagini/index",{
         ip: req.ip
     });
 
-});
-
-app.get("/despre", function(req, res){
-    res.render("pagini/despre");
 });
 
 function initErori(){

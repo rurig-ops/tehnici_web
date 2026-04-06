@@ -1,0 +1,48 @@
+@charset "UTF-8";
+a {
+  color: #557226;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+a:visited {
+  color: #384d3e;
+}
+
+a[href^=http]:not(.taburi-iframe a) {
+  position: relative;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+}
+a[href^=http]:not(.taburi-iframe a)::before {
+  content: "⮳";
+  font-size: 1.5em;
+  margin-right: 0.3em;
+  line-height: 1;
+  color: #557226;
+  transition: color 0.3s ease;
+}
+a[href^=http]:not(.taburi-iframe a):hover::before {
+  color: #273635;
+}
+
+main a:not(.taburi-iframe a) {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #273635;
+  padding: 2px 6px;
+  background-image: radial-gradient(circle, #557226 0%, #557226 40%, transparent 80%, transparent 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 0% 0%;
+  transition: background-size 0.5s ease;
+}
+main a:not(.taburi-iframe a):hover {
+  background-size: 100% 100%;
+  color: white;
+}
+main a:not(.taburi-iframe a):active {
+  border: 2px solid #4e5650;
+}

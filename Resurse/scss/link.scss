@@ -1,0 +1,67 @@
+$fundal-pagina: #C0DB7F;   
+$contur-inchis: #557226;    
+$text-inchis: #273635;     
+$titlu-verde: #384d3e;      
+$special-gri: #4e5650;      
+
+a {
+    color: $contur-inchis;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+
+    &:visited {
+        color: $titlu-verde;
+    }
+}
+
+a[href^="http"]:not(.taburi-iframe a) {
+    position: relative;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-weight: bold;
+
+    &::before {
+        content: "⮳";
+        font-size: 1.5em;
+        margin-right: 0.3em;
+        line-height: 1;
+        color: $contur-inchis;
+        transition: color 0.3s ease;
+    }
+
+    &:hover::before {
+        color: $text-inchis;
+    }
+}
+
+main a:not(.taburi-iframe a) {
+    display: inline-block; 
+    position: relative;
+    text-decoration: none;
+    color: $text-inchis;
+    padding: 2px 6px;
+
+    background-image: radial-gradient(
+        circle,
+        $contur-inchis 0%,
+        $contur-inchis 40%,
+        transparent 80%,
+        transparent 100%
+    );
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 0% 0%;
+
+    transition: background-size 0.5s ease;
+
+    &:hover {
+        background-size: 100% 100%;
+        color:white;
+    }
+
+    &:active {
+        border: 2px solid $special-gri;
+    }
+}

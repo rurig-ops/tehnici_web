@@ -2,6 +2,7 @@ const express= require("express");
 const path= require("path");
 const fs=require("fs");
 const sass=require("sass");
+const sharp=require("sharp");
 
 app= express();
 app.set("view engine", "ejs")
@@ -53,7 +54,6 @@ function initErori(){
 }
 initErori()
 
-//comentariu pt ca am gresit numele commit-ului oops
 
 function afisareEroare(res, identificator, titlu, text, imagine){
     //TO DO cautam eroarea dupa identificator

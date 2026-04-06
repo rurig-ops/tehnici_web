@@ -1,0 +1,18 @@
+$culoare1: #273635;
+$culoare2:#557226 ;
+#video-vtt {
+    display: block;
+    margin: 20px auto;
+    width: 90%;         
+    min-width: 280px;    
+    max-width: 750px;    
+    border: 3px solid $culoare1; 
+    border-radius: 8px;
+}
+
+/* ::cue e pt text */
+#video-vtt::cue {
+    background-color: $culoare2; 
+    color: $culoare1;           
+    font-family: 'Segoe UI', sans-serif;
+}

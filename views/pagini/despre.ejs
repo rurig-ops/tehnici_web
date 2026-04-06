@@ -2,22 +2,70 @@
 <html lang="ro">
 
 <head>
-        <meta name="keywords"
-        content="muraturi asortate de vanzare, Beciul Bunicii, muraturi asortate, muraturi, borcan de muraturi">
+    <meta name="keywords" content="istoric Beciul Bunicii, Beciul Bunicii, muraturi asortate informatii">
     <meta name="description" content="Istoricul si descrierea magazinului online de muraturi, Beciul bunicii">
     <title> Beciul bunicii - Despre </title>
     <%- include('../fragments/head.ejs') %>
+    <link rel="stylesheet" type="text/css" href="/CSS/video-vtt.css">
 </head>
 
 <body id="pag_sus">
-        <%- include('../fragments/header.ejs') %>
-    
+    <%- include('../fragments/header.ejs') %>
 
-    <main>
-        A doua pagina a site-ului.
-    </main>
 
-    <%- include('../fragments/footer.ejs') %>
+        <main>
+            <div id="grid-pagina-despre">
+                <section id="prezentare">
+                    <h2>Cine suntem?</h2>
+                    <p>Beciul bunicii este un magazin online de murături asortate, care oferă o gamă variată de produse
+                        tradiționale, preparate cu grijă și pasiune. Ne mândrim cu rețetele autentice și ingredientele
+                        de calitate, pentru a aduce gustul autentic al murăturilor în casele clienților noștri. Suntem o
+                        afacere familială cu o tradiție de generații, dedicată promovării și păstrării valorilor și
+                        tradițiilor culinare românești.</p>
+                </section>
+
+                <section id="istoric">
+                    <h2>Călătoria noastră</h2>
+                    <p>Totul a început în urmă cu mai bine de 40 de ani, în cămara răcoroasă a bunicii Maria, unde
+                        mirosul de mărar uscat și cimbru vestea întotdeauna venirea toamnei. Ceea ce a început ca o
+                        necesitate pentru iarnă a devenit, în timp, o artă admirată de toți vecinii din sat. </p>
+                    <p>În anul 2026, am decis să scoatem aceste comori la lumină și să împărtășim secretele borcanelor
+                        noastre cu restul lumii. Am păstrat aceleași butoaie de stejar și aceeași rețetă de saramură
+                        străveche, dar am adus pasiunea noastră în mediul online pentru a ajunge pe mesele românilor de
+                        pretutindeni.</p>
+                </section>
+
+                <section id="motivatie">
+                    <h2>Motivația noastră</h2>
+                    <p>Motivația noastră este simplă: refuzăm să lăsăm gustul de „acasă” să dispară într-o lume a
+                        produselor industrializate. Ne trezim în fiecare dimineață cu dorința de a demonstra că
+                        murăturile pot fi mai mult decât o garnitură, ele sunt o moștenire culturală.</p>
+                    <p>Fiecare feedback primit de la clienții care ne spun că „au regăsit gustul copilăriei” ne dă
+                        energia necesară să continuăm să alegem manual fiecare gogonea și să curățăm cu grijă fiecare
+                        rădăcină de hrean. Sănătatea consumatorilor noștri și respectul pentru pământul românesc sunt
+                        pilonii pe care am construit Beciul Bunicii.</p>
+                </section>
+
+                <section id="video">
+                    <h2>Video informativ: Secretele Beciului</h2>
+
+                    <video id="video-vtt" controls poster="/Imagini/poster-beci.jpg" preload="metadata">
+
+                        <source src="/video/prezentare-beci.mp4" type="video/mp4">
+                        <source src="/video/prezentare-beci.webm" type="video/webm">
+
+                        <track label="romana" kind="subtitles" srclang="ro" src="/video/tracks/captions_legume_ro.vtt" default>
+                        <track label="engleza" kind="subtitles" srclang="en" src="/video/tracks/captions_legume_en.vtt">
+
+                        Browserul tău nu suportă elementul video.
+                    </video>
+                </section>
+
+            </div>
+
+        </main>
+
+        <%- include('../fragments/footer.ejs') %>
 </body>
 
 </html>

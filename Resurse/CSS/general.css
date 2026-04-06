@@ -52,10 +52,6 @@ b{
     color:var(--culoare-special);
 }
 
-a{
-    color:var(--culoare-special);
-}
-
 main{
     margin-left: var(--margine-pagina);
     margin-right: var(--margine-pagina);

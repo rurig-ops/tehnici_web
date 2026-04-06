@@ -53,6 +53,8 @@ function initErori(){
 }
 initErori()
 
+//comentariu pt ca am gresit numele commit-ului oops
+
 function afisareEroare(res, identificator, titlu, text, imagine){
     //TO DO cautam eroarea dupa identificator
     let eroare=obGlobal.obErori.info_erori.find((elem)=>

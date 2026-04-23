@@ -1,0 +1,25 @@
+ <section id="galerie-statica">
+                    <h2>Galerie</h2>
+                    <div id="grid-galerie">
+                        <% const vectZile=["duminica", "luni" , "marti" , "miercuri" , "joi" , "vineri" , "sambata" ];
+                            const d=new Date(); const aziIndex=d.getDay(); const ziCurenta=vectZile[aziIndex];
+                            if(locals.imagini && locals.imagini.length> 0) {
+                            let imaginiFiltrate = locals.imagini.filter(img => {
+                            return img.intervale_zile.some(interval => {
+                            let startIdx = vectZile.indexOf(interval[0].toLowerCase());
+                            let endIdx = vectZile.indexOf(interval[1].toLowerCase());
+                            return aziIndex >= startIdx && aziIndex <= endIdx; }); }); if (imaginiFiltrate.length % 2
+                                !==0) { imaginiFiltrate.pop(); } if (imaginiFiltrate.length===0) { %>
+                                <p>Sunt imagini în json, dar niciuna nu se potrivește pentru azi</p>
+                                <% } for(let img of imaginiFiltrate) { %>
+                                    <figure>
+                                        <picture>
+                                            <source srcset="<%- img.fisier_mediu %>" media="(max-width:1100px)">
+                                            <img src="<%- img.fisier %>" alt="<%- img.continut_alternativ %>">
+                                        </picture>
+                                        <figcaption><span class="index-rom"></span> <%- img.descriere_poza %>
+                                        </figcaption>
+                                    </figure>
+                                    <% } } %>
+                    </div>
+                </section>

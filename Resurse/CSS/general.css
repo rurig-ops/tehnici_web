@@ -69,7 +69,8 @@ main{
                          "promo orar orar anunturi"
                          "retete retete retete retete"
                          "retete retete retete retete"
-                         "produse produse samerg index-intrebari";}
+                         "produse produse samerg index-intrebari"
+                         "galerie-statica galerie-statica galerie-statica galerie-statica";}
 
     #produse img, #produse figure img {
     max-width: 100%;    
@@ -216,7 +217,8 @@ main{
                          "produse orar "
                          "index-intrebari samerg"
                          "index-intrebari samerg"
-                         "retete retete";
+                         "retete retete"
+                         "galerie-statica galerie-statica";
 } 
 #grid-pagina img, #grid-pagina video {
     width: 100%;
@@ -285,6 +287,9 @@ main{
 }
 #pdf{
     grid-area: samerg;
+}
+#galerie-statica{
+    grid-area: galerie-statica;
 }
 
 footer{

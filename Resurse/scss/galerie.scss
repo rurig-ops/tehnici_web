@@ -1,0 +1,93 @@
+$tranzitie-durata: 800ms;
+$tranzitie-tip: linear;
+$culoare-hover: #557226; 
+
+#galerie-statica {
+    padding: 20px 0;
+    width: 100%; 
+    h2 { text-align: center; }
+}
+
+#grid-galerie {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    counter-reset: foto-counter;
+
+    figure {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        counter-increment: foto-counter;
+        filter: sepia(100%); 
+        transition: filter $tranzitie-durata $tranzitie-tip;
+
+        picture img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+        }
+
+        figcaption {
+            padding: 10px;
+            text-align: center;
+
+            transition: color $tranzitie-durata $tranzitie-tip, 
+                        text-shadow $tranzitie-durata $tranzitie-tip;
+
+            .index-rom::before {
+                content: counter(foto-counter, lower-roman) ") "; 
+                font-weight: bold;
+            }
+        }
+
+        &:hover {
+            filter: sepia(0%); 
+            box-shadow: rgb(230, 225, 225) 0px 0px 7px;
+
+            figcaption {
+                color: $culoare-hover; 
+                text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.887); 
+            }
+        }
+
+        @media screen and (min-width: 1001px) {
+            &:nth-of-type(1) { grid-area: 1 / 1 / 2 / 2; }
+            &:nth-of-type(2) { grid-area: 1 / 2 / 2 / 3; }
+
+            &:nth-of-type(3) { grid-area: 2 / 1 / 3 / 2; }
+            &:nth-child(4) { grid-area: 2 / 3 / 3 / 4; }
+
+            &:nth-of-type(5) { grid-area: 3 / 2 / 4 / 3; }
+            &:nth-of-type(6) { grid-area: 3 / 3 / 4 / 4; }
+
+            &:nth-of-type(7) { grid-area: 4 / 1 / 5 / 2; }
+            &:nth-of-type(8) { grid-area: 4 / 3 / 5 / 4; }
+
+            &:nth-of-type(9) { grid-area: 5 / 1 / 6 / 2; }
+            &:nth-of-type(10) { grid-area: 5 / 2 / 6 / 3; }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #grid-galerie {
+        grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 700px) {
+            grid-template-columns: 1fr;
+        }
+        figure {
+            grid-area: auto !important; 
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #grid-galerie {
+        grid-template-columns: 1fr;
+        figure {
+            grid-area: auto !important; 
+        }
+    }
+}

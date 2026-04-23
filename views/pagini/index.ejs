@@ -2,7 +2,7 @@
 <html lang="ro">
 
 <head>
-        <meta name="keywords"
+    <meta name="keywords"
         content="muraturi asortate de vanzare, Beciul Bunicii, muraturi asortate, muraturi, borcan de muraturi">
     <meta name="description" content="Beciul bunicii, magazin online de muraturi">
     <title> Beciul bunicii </title>
@@ -10,251 +10,225 @@
 </head>
 
 <body id="pag_sus">
-        <%- include('../fragments/header.ejs') %>
-        
+    <%- include('../fragments/header.ejs') %>
 
-    <main>
-        <div id="grid-pagina">
 
-            <section id="welcome">
-                
-                <hgroup>
-                    <h2>Bine ați venit în beciul nostru! <i class="fa-solid fa-jar fa-pulse icon-animat"></i></h2>
-                    <p>IP: <%- locals.ip %></p>
-                    <p class="subtitlu">Tradiție și gust în fiecare <b>borcan de murături</b></p>
-                </hgroup>
+        <main>
+            <div id="grid-pagina">
 
-                <figure>
-                    <a href="/Imagini/magu_mare.png">
-                        <picture>
-                            <source srcset="/Imagini/magu_normal.png" media="(max-width:700px)" />
-                            <source srcset="/Imagini/magu_mediu.png" media="(max-width:1200px)" />
-                            <img src="/Imagini/magu_normal.png" alt="Mascota"
-                                title="Click pentru varianta mare" />
-                        </picture>
-                    </a>
-                    <figcaption><b>Mascota magazinului</b> (Click pe imagine pentru zoom)</figcaption>
-                </figure>
+                <section id="welcome">
 
-                <p class="intro">Vă mulțumim că ne vizitați. Aici găsiți <b>murături asortate de vânzare</b>, exact cum
-                    le făcea bunica pe vremuri.</p>
+                    <hgroup>
+                        <h2>Bine ați venit în beciul nostru! <i class="fa-solid fa-jar fa-pulse icon-animat"></i></h2>
+                        <p>IP: <%- locals.ip %></p>
+                        <p class="subtitlu">Tradiție și gust în fiecare <b>borcan de murături</b></p>
+                    </hgroup>
+                    <p><button class="btn btn-primary">Buton primary</button></p>
+                    <p><button class="btn btn-secondary btn-lg">Buton secondary</button></p>
+                    <figure>
+                        <a href="/Resurse/Imagini/magu_mare.png">
+                            <picture>
+                                <source srcset="/Resurse/Imagini/magu_normal.png" media="(max-width:700px)" />
+                                <source srcset="/Resurse/Imagini/magu_mediu.png" media="(max-width:1200px)" />
+                                <img src="/Resurse/Imagini/magu_normal.png" alt="Mascota"
+                                    title="Click pentru varianta mare" />
+                            </picture>
+                        </a>
+                        <figcaption><b>Mascota magazinului</b> (Click pe imagine pentru zoom)</figcaption>
+                    </figure>
 
-                <p class="anunt intro">Livrăm sănătate la borcan direct la ușa dumneavoastră, prin curier rapid în toată
-                    țara.</p>
-            </section>
+                    <p class="intro">Vă mulțumim că ne vizitați. Aici găsiți <b>murături asortate de vânzare</b>, exact
+                        cum
+                        le făcea bunica pe vremuri.</p>
 
-            <section id="anunturi">
-                <h2 class="fg-img">Anunțuri</h2>
-                <ul>
-                    <li>
-                        <p><time datetime="2026-03-01T12:00">1 Martie, ora 12:00</time>,
-                            <b>Ziua mărțișorului</b> - Design personalizat tradițional pentru fiecare tip de borcan
-                        </p>
-                    </li>
-                    <li>
-                        <p><time datetime="2026-11-27T15:30">27 Noiembrie, ora 15:30</time>,
-                            <b>Ziua murăturilor</b> - Sărbătorirea creării acestei afaceri prin colaborarea cu Mâncare
-                            Urgentă
-                        </p>
-                    </li>
-                </ul>
-            </section>
+                    <p class="anunt intro">Livrăm sănătate la borcan direct la ușa dumneavoastră, prin curier rapid în
+                        toată
+                        țara.</p>
+                </section>
 
-            <section id="promo">
-                <h2>Promoții și Oferte de Sezon</h2>
-                <article>
-                    <h3 class="titlu">Pachetul Vărzarilor</h3>
-                    <p><b>Beciul Bunicii</b> oferă o <b>reducere de <s>10%</s> <ins>15%</ins></b> la achiziția a minim 3
-                        borcane de murături ce conțin varză.</p>
-                    <p>Oferta este valabilă până la sfârșitul lunii la produsele marcate cu eticheta <abbr
-                            title="Beciul Bunicii">BB</abbr>.</p>
-                </article>
+                <section id="anunturi">
+                    <h2 class="fg-img">Anunțuri</h2>
+                    <ul>
+                        <li>
+                            <p><time datetime="2026-03-01T12:00">1 Martie, ora 12:00</time>,
+                                <b>Ziua mărțișorului</b> - Design personalizat tradițional pentru fiecare tip de borcan
+                            </p>
+                        </li>
+                        <li>
+                            <p><time datetime="2026-11-27T15:30">27 Noiembrie, ora 15:30</time>,
+                                <b>Ziua murăturilor</b> - Sărbătorirea creării acestei afaceri prin colaborarea cu
+                                Mâncare
+                                Urgentă
+                            </p>
+                        </li>
+                    </ul>
+                </section>
 
-                <article>
-                    <h3>Ofertă Degustare</h3>
-                    <p>Pachetul conține mini-borcane cu:</p>
-                    <ol>
-                        <li><i lang="en">Pickled cucumbers</i> (Castraveți în oțet)</li>
-                        <li>Gogonele în saramură cu hrean</li>
-                        <li>Mix conopidă și sfeclă roșie</li>
-                        <li>Gratis: Un borcan mic de lubeniță murată</li>
-                    </ol>
-                </article>
-            </section>
+                <section id="promo">
+                    <h2>Promoții și Oferte de Sezon</h2>
+                    <article>
+                        <h3 class="titlu">Pachetul Vărzarilor</h3>
+                        <p><b>Beciul Bunicii</b> oferă o <b>reducere de <s>10%</s> <ins>15%</ins></b> la achiziția a
+                            minim 3
+                            borcane de murături ce conțin varză.</p>
+                        <p>Oferta este valabilă până la sfârșitul lunii la produsele marcate cu eticheta <abbr
+                                title="Beciul Bunicii">BB</abbr>.</p>
+                    </article>
 
-            <section id="produse">
-                <h2>Categoriile Noastre</h2>
-                <section>
-                    <h3>Murături în Saramură</h3>
-                    <p>Fermentate natural, bogate în probiotice:</p>
-                    <dl>
-                        <dt>Varză întreagă</dt>
-                        <dd>Esențială pentru sarmalele de iarnă.</dd>
+                    <article>
+                        <h3>Ofertă Degustare</h3>
+                        <p>Pachetul conține mini-borcane cu:</p>
+                        <ol>
+                            <li><i lang="en">Pickled cucumbers</i> (Castraveți în oțet)</li>
+                            <li>Gogonele în saramură cu hrean</li>
+                            <li>Mix conopidă și sfeclă roșie</li>
+                            <li>Gratis: Un borcan mic de lubeniță murată</li>
+                        </ol>
+                    </article>
+                </section>
 
-                        <dt>Gogonele</dt>
-                        <dd>Se folosesc atât cele verzi, cât și cele pârguite.</dd>
+                <section id="produse">
+                    <h2>Categoriile Noastre</h2>
+                    <section>
+                        <h3>Murături în Saramură</h3>
+                        <p>Fermentate natural, bogate în probiotice:</p>
+                        <dl>
+                            <dt>Varză întreagă</dt>
+                            <dd>Esențială pentru sarmalele de iarnă.</dd>
 
-                        <dt>Conopidă</dt>
-                        <dd>Rămâne crocantă în oțet sau saramură și absoarbe aromele de hrean și mărar.</dd>
+                            <dt>Gogonele</dt>
+                            <dd>Se folosesc atât cele verzi, cât și cele pârguite.</dd>
 
-                        <dt>Pepene murat (<i>lubeniță</i>)</dt>
-                        <dd>O delicatesă dulce-sărată.</dd>
-                    </dl>
-                    <p>Rating produse</p>
+                            <dt>Conopidă</dt>
+                            <dd>Rămâne crocantă în oțet sau saramură și absoarbe aromele de hrean și mărar.</dd>
 
-                    <meter value="4.5" min="0" max="5" low="2" high="4" optimum="5">
-                        4.5 din 5
-                    </meter>
+                            <dt>Pepene murat (<i>lubeniță</i>)</dt>
+                            <dd>O delicatesă dulce-sărată.</dd>
+                        </dl>
+                        <p>Rating produse</p>
 
-                    <p>Satisfacția clienților</p>
+                        <meter value="4.5" min="0" max="5" low="2" high="4" optimum="5">
+                            4.5 din 5
+                        </meter>
 
-                    <meter value="3.5" min="0" max="5" low="2" high="4" optimum="5">
-                        3.5 din 5
-                    </meter>
-                    <div style="display: flex; gap: 10px; margin-top: 20px;">
-                        <figure class="fg-img">
-                            <img src="/Imagini/free_pickles.jpg" alt="conopida" width="150">
+                        <p>Satisfacția clienților</p>
 
-                            <figcaption>
-                                Castraveți 1 <br>
-                                <a href="/Imagini/free_pickles.jpg"
-                                    download="Oferta_Speciala_Beciul_Bunicii.jpg">
-                                    Descărcați imaginea
-                                </a>
-                            </figcaption>
-                        </figure>
-                        <figure class="fg-img">
-                            <img src="/Imagini/free_veget.jpg" alt="sfecla" width="150">
-                            <figcaption>Castraveți 2</figcaption>
-                        </figure>
+                        <meter value="3.5" min="0" max="5" low="2" high="4" optimum="5">
+                            3.5 din 5
+                        </meter>
+                        <div style="display: flex; gap: 10px; margin-top: 20px;">
+                            <figure class="fg-img">
+                                <img src="/Resurse/Imagini/free_pickles.jpg" alt="conopida" width="150">
+
+                                <figcaption>
+                                    Castraveți 1 <br>
+                                    <a href="/Resurse/Imagini/free_pickles.jpg"
+                                        download="Oferta_Speciala_Beciul_Bunicii.jpg">
+                                        Descărcați imaginea
+                                    </a>
+                                </figcaption>
+                            </figure>
+                            <figure class="fg-img">
+                                <img src="/Resurse/Imagini/free_veget.jpg" alt="sfecla" width="150">
+                                <figcaption>Castraveți 2</figcaption>
+                            </figure>
+                        </div>
+                    </section>
+                </section>
+
+
+
+                <section id="orar">
+                    <h2>Orarul beciului nostru</h2>
+                    <div class="scroll-container">
+                        <table id="tab-orar">
+
+                            <caption>Programul magazinului fizic</caption>
+
+                            <thead>
+                                <tr>
+                                    <th>Perioadă</th>
+                                    <th>Zi</th>
+                                    <th>Interval Dimineață</th>
+                                    <th>Pauză</th>
+                                    <th>Interval Seară</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td rowspan="5">Zile Lucrătoare</td>
+                                    <td>Luni</td>
+                                    <td>09:00 - 12:00</td>
+                                    <td>12:00 - 13:00</td>
+                                    <td>13:00 - 18:00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Marti</td>
+                                    <td>09:00 - 12:00</td>
+                                    <td>12:00 - 13:00</td>
+                                    <td>12:00 - 16:00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Miercuri</td>
+                                    <td>09:00 - 12:00</td>
+                                    <td>12:00 - 13:00</td>
+                                    <td>12:00 - 16:00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Joi</td>
+                                    <td>09:00 - 12:00</td>
+                                    <td>12:00 - 13:00</td>
+                                    <td>12:00 - 16:00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Vineri</td>
+                                    <td>09:00 - 12:00</td>
+                                    <td>-</td>
+                                    <td>12:00 - 16:00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Weekend</td>
+                                    <td>Sâmbătă</td>
+                                    <td>10:00 - 13:00</td>
+                                    <td>-</td>
+                                    <td>13:00 - 15:00</td>
+                                </tr>
+                            </tbody>
+
+                            <tfoot>
+                                <tr>
+                                    <td colspan="5">Comenzile online se pot plasa 24/7!</td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </section>
-            </section>
+
+                <section id="index-intrebari">
+                    <h2>Întrebări frecvente</h2>
+                    <details>
+                        <summary>Murăturile sunt fermentate natural?</summary>
+                        <p>Da! Folosim doar apă, sare și condimente naturale, fără conservanți chimici.</p>
+                    </details>
+                    <details>
+                        <summary>Cum livrați borcanele de sticlă?</summary>
+                        <p>Folosim ambalaje speciale anti-șoc pentru a ne asigura că produsele ajung întregi la tine.
+                        </p>
+                    </details>
+                </section>
 
 
-
-            <section id="orar">
-                <h2>Orarul beciului nostru</h2>
-                <div class="scroll-container">
-                    <table id="tab-orar">
-
-                        <caption>Programul magazinului fizic</caption>
-
-                        <thead>
-                            <tr>
-                                <th>Perioadă</th>
-                                <th>Zi</th>
-                                <th>Interval Dimineață</th>
-                                <th>Pauză</th>
-                                <th>Interval Seară</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td rowspan="5">Zile Lucrătoare</td>
-                                <td>Luni</td>
-                                <td>09:00 - 12:00</td>
-                                <td>12:00 - 13:00</td>
-                                <td>13:00 - 18:00</td>
-                            </tr>
-
-                            <tr>
-                                <td>Marti</td>
-                                <td>09:00 - 12:00</td>
-                                <td>12:00 - 13:00</td>
-                                <td>12:00 - 16:00</td>
-                            </tr>
-
-                            <tr>
-                                <td>Miercuri</td>
-                                <td>09:00 - 12:00</td>
-                                <td>12:00 - 13:00</td>
-                                <td>12:00 - 16:00</td>
-                            </tr>
-
-                            <tr>
-                                <td>Joi</td>
-                                <td>09:00 - 12:00</td>
-                                <td>12:00 - 13:00</td>
-                                <td>12:00 - 16:00</td>
-                            </tr>
-
-                            <tr>
-                                <td>Vineri</td>
-                                <td>09:00 - 12:00</td>
-                                <td>-</td>
-                                <td>12:00 - 16:00</td>
-                            </tr>
-
-                            <tr>
-                                <td>Weekend</td>
-                                <td>Sâmbătă</td>
-                                <td>10:00 - 13:00</td>
-                                <td>-</td>
-                                <td>13:00 - 15:00</td>
-                            </tr>
-                        </tbody>
-
-                        <tfoot>
-                            <tr>
-                                <td colspan="5">Comenzile online se pot plasa 24/7!</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </section>
-
-            <section id="index-intrebari">
-                <h2>Întrebări frecvente</h2>
-                <details>
-                    <summary>Murăturile sunt fermentate natural?</summary>
-                    <p>Da! Folosim doar apă, sare și condimente naturale, fără conservanți chimici.</p>
-                </details>
-                <details>
-                    <summary>Cum livrați borcanele de sticlă?</summary>
-                    <p>Folosim ambalaje speciale anti-șoc pentru a ne asigura că produsele ajung întregi la tine.</p>
-                </details>
-            </section>
+               <%- include('../fragments/galerie.ejs') %>
 
 
-            <!--<section id="galerie-statica">
-            <h2>Galerie</h2>
-            <div id="grid-galerie">
-                <figure>
-                    <div>
-                        <img src="resurse/Imagini/free_cucumber.jpg" alt="briose">
-                    </div>
+            
 
-                    <figcaption>Murături</figcaption>
-                </figure>
-                <figure>
-                    <img src="resurse/Imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                </figure>
-                <figure>
-                    <img src="resurse/Imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                </figure>
-                <figure>
-                    <img src="resurse/Imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                </figure>
-                <figure>
-                    <img src="resurse/Imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                </figure>
-                <figure>
-                    <img src="resurse/Imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                </figure>
-                <figure>
-                    <img src="resurse/Imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                </figure>
-
-            </div>
-        </section> -->
             <section id="retete">
                 <h2>Retete</h2>
                 <p>Rețete la care pot fi folosite murăturile din oferta noastră.
@@ -273,7 +247,8 @@
                             gogonele</a>
                         <a href="https://www.youtube.com/embed/EBfhYzZ0DCw?start=48s" target="ifr-video">Reteta
                             conopida</a>
-                        <a href="https://www.youtube.com/embed/tKD6LRFxsqg" target="ifr-video">Reteta varza</a><br />
+                        <a href="https://www.youtube.com/embed/tKD6LRFxsqg" target="ifr-video">Reteta
+                            varza</a><br />
                     </div>
 
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/tKD6LRFxsqg" name="ifr-video"
@@ -293,17 +268,19 @@
             </section>
             <section id="pdf">
                 <h2>Document pdf cu retete</h2>
-                <object data="/pdf/retete_muraturi.pdf" type="application/pdf" width="300" height="300">
+                <object data="/Resurse/pdf/retete_muraturi.pdf" type="application/pdf" width="300" height="300">
                     <p>Browserul nu poate afișa PDF-ul.
-                        <a href="/pdf/retete_muraturi.pdf">Descarcă PDF-ul</a>
+                        <a href="/Resurse/pdf/retete_muraturi.pdf">Descarcă PDF-ul</a>
                     </p>
                 </object>
             </section>
+            </div>
+
+        </main>
         </div>
+            </section>
 
-    </main>
-
-    <%- include('../fragments/footer.ejs') %>
+        <%- include('../fragments/footer.ejs') %>
 </body>
 
 </html>

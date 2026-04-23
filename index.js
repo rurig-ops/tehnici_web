@@ -7,6 +7,9 @@ const sharp=require("sharp");
 app= express();
 app.set("view engine", "ejs")
 
+// const pg = require("pg");
+
+
 
 
 obGlobal={
@@ -21,6 +24,25 @@ console.log("Folder index.js", __dirname);
 console.log("Folder curent (de lucru)", process.cwd());
 console.log("Cale fisier", __filename);
 
+// client=new pg.Client({
+//     database:"proiect-tw",
+//     user:"maria",
+//     password:"1907",
+//     host:"localhost",
+//     port:5432
+// })
+
+// client.connect()
+
+// client.query("select * from prajituri where id>3", function(err, rez){
+//     if (err){
+//         console.log("Eroare", err)
+//     }
+//     else{
+//         console.log(rez)
+//     }
+// })
+
 let vect_foldere=[ "temp", "logs", "backup", "fisiere_uploadate" ]
 for (let folder of vect_foldere){
     let caleFolder=path.join(__dirname, folder);
@@ -29,7 +51,8 @@ for (let folder of vect_foldere){
     }
 }
 
-app.use(express.static(path.join(__dirname, "Resurse")));
+app.use("/Resurse",express.static(path.join(__dirname, "Resurse")));
+app.use("/dist",express.static(path.join(__dirname, "/node_modules/bootstrap/dist")));
 
 app.get("/favicon.ico", function(req, res){
     res.sendFile(path.join(__dirname,"Resurse/Imagini/ico/favicon.ico"))
@@ -37,10 +60,61 @@ app.get("/favicon.ico", function(req, res){
 
 app.get(["/", "/index", "/home"], function(req, res){
     res.render("pagini/index",{
-        ip: req.ip
+        ip: req.ip,
+        imagini: obGlobal.obImagini.imagini
     });
 
 });
+
+app.get("/galerie", function(req, res){
+    res.render("pagini/galerie-stat",{
+        ip: req.ip,
+        imagini: obGlobal.obImagini.imagini
+    });
+
+});
+
+// //si aici posibil sa trebuiasca editat codu
+// app.get("/produse", function(req, res){
+//     clauzaWhere=""
+//         if (req.query.tip){
+//             clauzaWhere=` where tip='${req.query.tip}'`
+//         }
+//     client.query(`select * from prajituri ${clauzaWhere}`, function(err, rez){
+//     if (err){
+//         console.log("Eroare", err)
+//         afisareEroare(res,2)
+//     }
+//     else{
+//         console.log(rez)
+//         res.render("pagini/produse",{
+//             produse: rez.rows,
+//             optiuni:[]
+//         })
+//     }
+// })
+//     });
+
+// //de reparat icia
+//     app.get("/produs/:id", function(req, res){
+//     client.query(`select * from prajituri where id=${req.params.id}`, function(err, rez){
+//     if (err){
+//         console.log("Eroare", err)
+//         afisareEroare(res,404)
+//     }
+//     else if{
+
+//     }
+//     else{
+//         console.log(rez)
+//         res.render("pagini/produs",{
+//             produse: rez.rows[0],
+//         })
+//     }
+// })
+//     });
+
+
 
 function initErori(){
     let continut = fs.readFileSync(path.join(__dirname,"Resurse/json/erori.json")).toString("utf-8");
@@ -75,6 +149,31 @@ function afisareEroare(res, identificator, titlu, text, imagine){
     });
 }
 
+function initImagini(){
+    var continut= fs.readFileSync(path.join(__dirname,"Resurse/json/galerie.json")).toString("utf-8");
+
+    obGlobal.obImagini=JSON.parse(continut);
+    let vImagini=obGlobal.obImagini.imagini;
+    let caleGalerie=obGlobal.obImagini.cale_galerie
+
+    let caleAbs=path.join(__dirname,caleGalerie);
+    let caleAbsMediu=path.join(caleAbs, "mediu");
+    if (!fs.existsSync(caleAbsMediu))
+        fs.mkdirSync(caleAbsMediu);
+    
+    for (let imag of vImagini){
+        [numeFis, ext]=imag.fisier_imagine.split("."); //"ceva.png" -> ["ceva", "png"]
+        let caleFisAbs=path.join(caleAbs,imag.fisier_imagine);
+        let caleFisMediuAbs=path.join(caleAbsMediu, numeFis+".webp");
+        sharp(caleFisAbs).resize(300).toFile(caleFisMediuAbs);
+        imag.fisier_mediu=path.join("/", caleGalerie, "mediu", numeFis+".webp" )
+        imag.fisier=path.join("/", caleGalerie, imag.fisier_imagine )
+        
+    }
+    // console.log(obGlobal.obImagini)
+}
+initImagini();
+
 
 
 function compileazaScss(caleScss, caleCss){
@@ -106,6 +205,7 @@ function compileazaScss(caleScss, caleCss){
     
 }
 
+//compilare automata scss facuta de la curs
 
 //la pornirea serverului
 vFisiere=fs.readdirSync(obGlobal.folderScss);

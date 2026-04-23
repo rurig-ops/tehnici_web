@@ -1,0 +1,217 @@
+{
+	"cale_galerie": "Resurse/Imagini/galerie",
+	"imagini": [
+		{
+			"fisier_imagine": "borcane.jpg",
+			"nume_poza": "Borcane muraturi",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "O parte din borcanele cu murături pentru iarnă",
+			"intervale_zile": [
+				[
+					"luni",
+					"miercuri"
+				],
+				[
+					"sambata",
+					"sambata"
+				]
+			]
+		},
+		{
+			"fisier_imagine": "borcane-retro.jpg",
+			"nume_poza": "Borcane muraturi retro",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "Borcanele cu murături într-o variantă retro",
+			"intervale_zile": [
+				[
+					"duminica",
+					"luni"
+				],
+				[
+					"vineri",
+					"sambata"
+				]
+			]
+		},
+		{
+			"fisier_imagine": "selectie.jpg",
+			"nume_poza": "Selectie muraturi",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "O selecție de murături pentru iarnă",
+			"intervale_zile": [
+				[
+					"miercuri",
+					"vineri"
+				],
+				[
+					"sambata",
+					"sambata"
+				]
+			]
+		},
+		{
+			"fisier_imagine": "selectie-retro.jpg",
+			"nume_poza": "Selectie retro de muraturi",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "O selecție de murături într-o variantă retro",
+			"intervale_zile": [
+				[
+					"duminica",
+					"joi"
+				],
+				[
+					"sambata",
+					"sambata"
+				]
+			]
+		},	
+		{
+			"fisier_imagine": "ceapa.jpg",
+			"nume_poza": "Ceapa murata",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "O ceapă murată pentru iarnă",
+			"intervale_zile": [
+				[
+					"duminica",
+					"luni"
+				],
+				[
+					"vineri",
+					"sambata"
+				]
+			]
+		},
+		{
+			"fisier_imagine": "ceapa-retro.jpg",
+			"nume_poza": "Ceapa murata retro",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "O ceapă murată într-o variantă retro",
+			"intervale_zile": [
+				[
+					"luni",
+					"miercuri"
+				],
+				[
+					"joi",
+					"sambata"
+				]
+			]
+		},
+		{
+			"fisier_imagine": "condimente.jpg",
+			"nume_poza": "Condimente pentru murături",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "O selecție de condimente pentru murături",
+			"intervale_zile": [
+				[
+					"marti",
+					"marti"
+				],
+				[
+					"sambata",
+					"sambata"
+				]
+			]
+		},
+		{
+			"fisier_imagine": "condimente-retro.jpg",
+			"nume_poza": "Condimente retro pentru murături",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "O selecție de condimente într-o variantă retro",
+			"intervale_zile": [
+				[
+					"luni",
+					"marti"
+				],
+				[
+					"joi",
+					"vineri"
+				]
+			]
+		},
+		{
+			"fisier_imagine": "gogosari.jpg",
+			"nume_poza": "Gogosari",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "O selecție de gogosari pentru iarnă",
+			"intervale_zile": [
+				[
+					"luni",
+					"miercuri"
+				],
+				[
+					"vineri",
+					"vineri"
+				]
+			]
+		},
+		{
+			"fisier_imagine": "gogosari-retro.jpg",
+			"nume_poza": "Gogosari retro",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "O selecție de gogosari într-o variantă retro",
+			"intervale_zile": [
+				[
+					"luni",
+					"luni"
+				],
+				[
+					"miercuri",
+					"joi"
+				]
+			]
+		},
+		{
+			"fisier_imagine": "saramura.jpg",
+			"nume_poza": "Saramura",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "O saramură pentru iarnă",
+			"intervale_zile": [
+				[
+					"duminica",
+					"miercuri"
+				],
+				[
+					"vineri",
+					"sambata"
+				]
+			]
+		},
+		{
+			"fisier_imagine": "saramura-retro.jpg",
+			"nume_poza": "Saramura retro",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "O saramură într-o variantă retro",
+			"intervale_zile": [
+				[
+					"duminica",
+					"miercuri"
+				]
+			]
+		},
+		{
+			"fisier_imagine": "usturoi+gogonele.jpg",
+			"nume_poza": "Usturoi și gogonele",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "O selecție de usturoi și gogonele pentru iarnă",
+			"intervale_zile": [
+				[
+					"duminica",
+					"marti"
+				]
+			]
+		},
+		{
+			"fisier_imagine": "varza.jpg",
+			"nume_poza": "Varza murata",
+			"continut_alternativ": "Imaginea nu a putut fi încărcată",
+			"descriere_poza": "O varză murată pentru iarnă",
+			"intervale_zile": [
+				[
+					"miercuri",
+					"miercuri"
+				]
+			]
+		}
+	]
+}

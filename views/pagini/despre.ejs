@@ -6,7 +6,8 @@
     <meta name="description" content="Istoricul si descrierea magazinului online de muraturi, Beciul bunicii">
     <title> Beciul bunicii - Despre </title>
     <%- include('../fragments/head.ejs') %>
-    <link rel="stylesheet" type="text/css" href="/CSS/video-vtt.css">
+    <link rel="stylesheet" type="text/css" href="/Resurse/CSS/video-vtt.css">
+    <link rel="stylesheet" type="text/css" href="/Resurse/CSS/efecte-css.css">
 </head>
 
 <body id="pag_sus">
@@ -16,14 +17,28 @@
         <main>
             <div id="grid-pagina-despre">
                 <section id="prezentare">
-                    <h2>Cine suntem?</h2>
+                    <div id="container-reflexie">
+                    <h2 id="text" data-text="Cine suntem?">Cine suntem?</h2></div>
                     <p>Beciul bunicii este un magazin online de murături asortate, care oferă o gamă variată de produse
                         tradiționale, preparate cu grijă și pasiune. Ne mândrim cu rețetele autentice și ingredientele
                         de calitate, pentru a aduce gustul autentic al murăturilor în casele clienților noștri. Suntem o
                         afacere familială cu o tradiție de generații, dedicată promovării și păstrării valorilor și
                         tradițiilor culinare românești.</p>
+                        <div class="duotone">
+                            <figure>
+                        <a href="/Resurse/Imagini/magu_mare.png">
+                            <picture>
+                                <source srcset="/Resurse/Imagini/magu_normal.png" media="(max-width:700px)" />
+                                <source srcset="/Resurse/Imagini/magu_mediu.png" media="(max-width:1200px)" />
+                                <img src="/Resurse/Imagini/magu_normal.png" alt="Mascota"
+                                    title="Click pentru varianta mare" />
+                            </picture>
+                        </a>
+                        <figcaption><b>Mascota magazinului</b> (Click pe imagine pentru zoom)</figcaption>
+                    </figure>
+                        </div>
                 </section>
-
+                <hr class="efect-css-stilizare-hr">
                 <section id="istoric">
                     <h2>Călătoria noastră</h2>
                     <p>Totul a început în urmă cu mai bine de 40 de ani, în cămara răcoroasă a bunicii Maria, unde
@@ -49,20 +64,19 @@
                 <section id="video">
                     <h2>Video informativ: Secretele Beciului</h2>
 
-                    <video id="video-vtt" controls poster="/Imagini/poster-beci.jpg" preload="metadata">
+                    <video id="video-vtt" controls poster="/Resurse/Imagini/poster-beci.jpg" preload="metadata">
 
-                        <source src="/video/prezentare-beci.mp4" type="video/mp4">
-                        <source src="/video/prezentare-beci.webm" type="video/webm">
+                        <source src="/Resurse/video/prezentare-beci.mp4" type="video/mp4">
+                        <source src="/Resurse/video/prezentare-beci.webm" type="video/webm">
 
-                        <track label="romana" kind="subtitles" srclang="ro" src="/video/tracks/captions_legume_ro.vtt" default>
-                        <track label="engleza" kind="subtitles" srclang="en" src="/video/tracks/captions_legume_en.vtt">
+                        <track label="romana" kind="subtitles" srclang="ro" src="/Resurse/video/tracks/captions_legume_ro.vtt" default>
+                        <track label="engleza" kind="subtitles" srclang="en" src="/Resurse/video/tracks/captions_legume_en.vtt">
 
                         Browserul tău nu suportă elementul video.
                     </video>
                 </section>
 
             </div>
-
         </main>
 
         <%- include('../fragments/footer.ejs') %>

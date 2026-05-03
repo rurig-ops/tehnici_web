@@ -174,6 +174,106 @@ function initImagini(){
 }
 initImagini();
 
+//bonus etapa 4
+function checkFiles() {
+    //nu exis erori.json
+  let caleErori = path.join(__dirname, "Resurse/json/erori.json");
+  if (!fs.existsSync(caleErori)) {
+    console.error(
+      "CRITICAL: Fisierul 'Resurse/json/erori.json' lipseste. Creati fisierul inainte de a reporni serverul.",
+    );
+    process.exit(1);
+  }
+
+  //nu apare una din propr
+  let continut = fs.readFileSync(caleErori).toString("utf-8");
+  let erori = JSON.parse(continut);
+
+  if (erori.info_erori == undefined) {
+    console.error(
+      "INFO: Proprietatea 'info_erori' lipseste din 'Resurse/json/erori.json'.\n" +
+        '  → Adaugati: "info_erori": [{ "identificator": "...", "status": "...", "titlu": "...", "text:": "...", "imagine": "..."}]',
+    );
+  }
+
+  if (erori.cale_baza == undefined) {
+    console.error(
+      "INFO: Proprietatea 'cale_baza' lipseste din 'Resurse/json/erori.json'.\n" +
+        '  → Adaugati: "cale_baza": "Resurse/imagini/erori"',
+    );
+  }
+
+  //eroarea default n are toate propr
+  if (erori.eroare_default == undefined) {
+    console.error(
+      "INFO: Proprietatea 'eroare_default' lipseste din 'Resurse/json/erori.json'.\n" +
+        '  → Adaugati: "eroare_default": { "titlu": "...", "text": "...", "imagine": "..." }',
+    );
+  } else {
+    if (erori.eroare_default.titlu == undefined) {
+      console.error(
+        "INFO: Proprietatea 'eroare_default.titlu' lipseste din 'Resurse/json/erori.json'.\n" +
+          '  → Adaugati: "titlu": "A aparut o eroare"',
+      );
+    }
+    if (erori.eroare_default.text == undefined) {
+      console.error(
+        "INFO: Proprietatea 'eroare_default.text' lipseste din 'Resurse/json/erori.json'.\n" +
+          '  → Adaugati: "text": "A aparut o eroare neasteptata. Va rugam reincercati."',
+      );
+    }
+    if (erori.eroare_default.imagine == undefined) {
+      console.error(
+        "INFO: Proprietatea 'eroare_default.imagine' lipseste din 'Resurse/json/erori.json'.\n" +
+          '  → Adaugati: "imagine": "eroare_default.png"',
+      );
+    }
+  }
+
+  //nu exista folderu care e in caleBaza
+  let cale_baza = path.join(__dirname, erori.cale_baza);
+  if (!fs.existsSync(cale_baza)) {
+    console.error(
+      `INFO: Directorul '${erori.cale_baza}' specificat in 'Resurse/json/erori.json' nu exista.\n` +
+        `  → Creati directorul '${erori.cale_baza}' sau corectati valoarea proprietatii 'cale_baza'.`,
+    );
+  }
+
+  //nu exista imaginile din info_erori
+  for (let eroare of erori.info_erori) {
+    let caleImagine = path.join(cale_baza, eroare.imagine);
+    if (!fs.existsSync(caleImagine)) {
+      console.error(
+        `INFO: Imaginea '${eroare.imagine}' pentru eroarea '${eroare.identificator}' nu a fost gasita.\n` +
+          `  → Adaugati imaginea in '${erori.cale_baza}' sau corectati valoarea 'imagine' in 'Resurse/json/erori.json'.`,
+      );
+    }
+  }
+
+  //sa nu fie duplicate la ident erorilor
+  let grupe = {};
+  for (let eroare of erori.info_erori) {
+    let id = eroare.identificator;
+    if (!grupe[id]) {
+      grupe[id] = [];
+    }
+    grupe[id].push(eroare);
+  }
+
+  for (let id in grupe) {
+    if (grupe[id].length > 1) {
+      console.error(
+        `INFO: Identificatorul '${id}' apare de ${grupe[id].length} ori in 'info_erori' din 'Resurse/json/erori.json'.\n` +
+          `  → Pastrati doar o singura intrare cu identificatorul '${id}'.`,
+      );
+      for (let eroare of grupe[id]) {
+        let { identificator, ...restProprietati } = eroare;
+        console.error(`  → `, restProprietati);
+      }
+    }
+  }
+}
+
 
 
 function compileazaScss(caleScss, caleCss){
@@ -224,6 +324,8 @@ fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
         }
     }
 })
+
+
 
 app.get("/*pagina", function(req, res){
     console.log("Cale pagina", req.url);
